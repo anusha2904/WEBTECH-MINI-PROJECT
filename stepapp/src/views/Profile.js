@@ -75,7 +75,7 @@ class Profile extends React.Component
               <h4>Login</h4>
             </CardHeader>
             <CardBody>
-              <div className="profileInput">
+              <div className="usernameInput">
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
                   {/*<CustomInput
