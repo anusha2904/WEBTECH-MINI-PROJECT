@@ -39,9 +39,11 @@ class SignUp extends React.Component
           "password": this.state.password.target.value
         })
         .then(res => { 
-                if(res.data.signup == true)
+          console.log(res);
+                if(res.data.signup == "true")
                 {
-                    return(this.setState({login:"You have successfully signed up."})); 
+                    this.setState({login:"You have successfully signed up."}); 
+                    window.location.href = "/login";
                 }
           
         })

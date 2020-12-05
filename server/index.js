@@ -41,7 +41,7 @@ app.post('/login', (req, res) => {
 		}
 
 	});
-})
+});
 
 //Check if user has taken test
 app.post('/checkHasTakenTest', (req, res) => {
@@ -59,8 +59,8 @@ app.post('/checkHasTakenTest', (req, res) => {
 				res.send({"hasTakenTest":"false"});
 			}
 		}
-	}
-}
+	});
+});
 
 app.post('/signup', (req, res) => {
   
@@ -74,7 +74,7 @@ app.post('/signup', (req, res) => {
 		}
 
 	});
-})
+});
 
 app.post('/profile', (req, res) => {
   
@@ -92,6 +92,6 @@ app.post('/profile', (req, res) => {
 	
 		});
 	
-})
+});
 
-app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
+app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));

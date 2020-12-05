@@ -45,7 +45,7 @@ class Login extends React.Component
           {
             
             ls.set('username', this.state.username.target.value); 
-            window.location.href = "/profile";
+            window.location.href = "/homepage";
           }
           else
           {
