@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Login from './Login';
+import Login from './views/Login';
+import HomePage from './views/HomePage';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
