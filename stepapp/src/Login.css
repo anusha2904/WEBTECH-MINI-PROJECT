@@ -12,6 +12,11 @@
   padding-left: 200px !important;
 }
 
+.usernameInput{
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

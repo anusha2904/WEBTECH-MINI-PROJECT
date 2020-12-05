@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './Login.css';
 import React from 'react';
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -12,10 +12,11 @@ import CardHeader from "./components/Card/CardHeader.js";
 import CardAvatar from "./components/Card/CardAvatar.js";
 import CardBody from "./components/Card/CardBody.js";
 import CardFooter from "./components/Card/CardFooter.js";
+import Input from '@material-ui/core/Input';
 
 const axios = require('axios');
 
-class App extends React.Component
+class Login extends React.Component
 {
   constructor (props)
   {
@@ -68,6 +69,7 @@ class App extends React.Component
               <h4>Login</h4>
             </CardHeader>
             <CardBody>
+              <div className="usernameInput">
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
                   {/*<CustomInput
@@ -78,11 +80,13 @@ class App extends React.Component
                       fullWidth: true
                     }
                   />*/}
-                  <input type="text" onChange = { (val) => this.setInputValue('username', val)}/>
+                  <Input placeholder="Username" onChange = { (val) => this.setInputValue('username', val)}></Input>
                 </GridItem>
               </GridContainer>
+              </div>
+              <div>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={6}>
+                <GridItem xs={12} sm={12} md={3}>
                   {/*<CustomInput
                     labelText="Password"
                     id="password"
@@ -91,9 +95,10 @@ class App extends React.Component
                       fullWidth: true
                     }}
                   />*/}
-                  <input type="text" onChange = { (val) => this.setInputValue('password', val)}/>
+                  <Input placeholder="Password" onChange = { (val) => this.setInputValue('password', val)}></Input>
                 </GridItem>
               </GridContainer>
+              </div>
             </CardBody>
             <CardFooter>
               <Button color="primary" onClick={() => this.handleButtonClick()}>Login</Button>
@@ -107,4 +112,4 @@ class App extends React.Component
 
 }
 
-export default App;
+export default Login;
