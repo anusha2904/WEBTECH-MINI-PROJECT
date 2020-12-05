@@ -43,4 +43,24 @@ app.post('/login', (req, res) => {
 	});
 })
 
+//Check if user has taken test
+app.post('/checkHasTakenTest', (req, res) => {
+
+	_db.collection("user").findOne({"username":req.body.username}, function(err, result) {
+
+		if(result != null)
+		{
+			if(result.hasTakenTest == "true")
+			{
+				res.send({"hasTakenTest":"true"});
+			}
+			else
+			{
+				res.send({"hasTakenTest":"false"});
+			}
+		}
+
+	});
+})
+
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))

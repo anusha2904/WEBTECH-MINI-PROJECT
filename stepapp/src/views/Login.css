@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.homepageMainDiv{
+  background-image: "../assets/img/background.jpg" !important;
+}
+
+.takeTestDiv{
+  padding-top:5%;
+  text-align: center;
+}
+
 .cardStyle{
   display: block;
   margin: auto !important;

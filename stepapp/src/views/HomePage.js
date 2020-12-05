@@ -1,19 +1,17 @@
 import './Login.css';
 import React from 'react';
+import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
+import Background from "../assets/img/background4.jpeg";
 import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import GridItem from "../components/Grid/GridItem.js";
-import GridContainer from "../components/Grid/GridContainer.js";
-import CustomInput from "../components/CustomInput/CustomInput.js";
-// import Button from "components/CustomButtons/Button.js";
-import Card from "../components/Card/Card.js";
-import CardHeader from "../components/Card/CardHeader.js";
-import CardAvatar from "../components/Card/CardAvatar.js";
-import CardBody from "../components/Card/CardBody.js";
-import CardFooter from "../components/Card/CardFooter.js";
-import Input from '@material-ui/core/Input';
+import ls from 'local-storage';
 
 const axios = require('axios');
+
+var sectionStyle = {
+    width:"100%",
+    height:"400px",
+    backgroundImage: "url(" + Background + ")"
+  };
 
 class HomePage extends React.Component
 {
@@ -21,27 +19,72 @@ class HomePage extends React.Component
   {
     super(props);
     this.state = {
-      username:'',
-      password:''
+      hasTakenTest:false
     }
   }
 
-  setInputValue(property, val) {
-    if (val.length > 12) {
-      return;
-    }
-    this.setState({
-      [property]: val
-    })
+  componentDidMount() {
+    
+    console.log("loaded!");
+
+    //var username = ls.get('username');
+    var username = "pooja";
+    axios
+        .post('http://localhost:5000/checkHasTakenTest', {
+          "username": username,
+        })
+        .then(res => {
+          console.log(res);
+          if(res.data.hasTakenTest == "true")
+          {
+            this.setState({ hasTakenTest: true });
+          }
+        })
+        .catch(error => {
+          console.error(error)
+        })
+
   }
 
   render()
   {
-    return (
-      <div>
-          In homepage
-    </div>
-    );
+
+    if(this.state.hasTakenTest)
+    {
+        return (
+            <div>
+            <ButtonAppBar></ButtonAppBar>
+            
+            <div className="homepageMainDiv" style={sectionStyle}>
+              
+              <div className="takeTestDiv">
+                  <p>Take our aptitute test again!</p>
+                  <Button color="default" variant="outlined">Take the test!</Button>
+              </div>
+              <div className="takeTestDiv">
+                  <p>See the results</p>
+                  <Button color="default" variant="outlined">Results</Button>
+              </div>
+            </div>
+          </div>
+          );
+    }
+    else
+    {
+        return (
+            <div>
+            <ButtonAppBar></ButtonAppBar>
+            
+            <div className="homepageMainDiv" style={sectionStyle}>
+              
+              <div className="takeTestDiv">
+                  <p>Take our aptitute test to determine your strengths!</p>
+                  <Button color="default" variant="outlined">Take the test!</Button>
+              </div>
+            </div>
+          </div>
+          );
+    }
   }
 
 }
