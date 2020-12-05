@@ -69,8 +69,8 @@ class ButtonAppBar extends React.Component {
           classes={{
             paper: classes.drawerPaper,
           }}
-          open={this.state.drawerIsOpen}
-        >
+          open={this.state.drawerIsOpen}>
+            
           <div className={classes.drawerHeader}>
             <IconButton onClick={this.handleDrawerClose}>
               <ChevronLeftIcon />
