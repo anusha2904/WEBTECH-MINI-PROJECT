@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Login from './views/Login';
 import HomePage from './views/HomePage';
+import SignUp from './views/SignUp';
+import Profile from './views/Profile';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
@@ -21,6 +23,8 @@ ReactDOM.render(
     <Switch>
       <Route path="/login" component={Login} />
       <Route path="/homepage" component={HomePage} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/profile" component={Profile} />
       <Redirect from="/" to="/login" />
     </Switch>
   </Router>,
