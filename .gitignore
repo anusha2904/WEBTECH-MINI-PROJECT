@@ -5,3 +5,5 @@ stepapp/node_modules/*
 stepapp/src/.DS_Store
 stepapp/src/components/.DS_Store
 .DS_Store
+stepapp/.eslintcache
+.DS_Store
