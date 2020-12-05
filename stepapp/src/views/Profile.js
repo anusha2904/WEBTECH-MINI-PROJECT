@@ -1,7 +1,6 @@
 import './Login.css';
 import React from 'react';
-import ls from 'local-storage';
-
+import ls from 'local-storage'; 
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import GridItem from "../components/Grid/GridItem.js";
@@ -17,50 +16,43 @@ import Input from '@material-ui/core/Input';
 
 const axios = require('axios');
 
-class Login extends React.Component
+class Profile extends React.Component
 {
   constructor (props)
   {
     super(props);
     this.state = {
-      username:'',
-      password:'',
-      wrongPassword:''
+      math: '', 
+      chem: '', 
+      phy: '', 
+      cetRank: '', 
+      username: ls.get('username'), 
+      update:''  
     }
   }
 
   handleButtonClick()
   {
-    console.log("Hello in clickButton");
-
-    console.log(this.state.username.target.value, this.state.password.target.value);
-    
+    console.log("Hello"); 
     axios
-        .post('http://localhost:5000/login', {
-          "username": this.state.username.target.value,
-          "password": this.state.password.target.value
+        .post('http://localhost:5000/profile', {
+          "math": this.state.math.target.value,
+          "chem": this.state.chem.target.value,
+          "phy": this.state.phy.target.value,
+          "cetRank": this.state.cetRank.target.value, 
+          "username":ls.get('username')
         })
-        .then(res => {
-          if(res.data.login == "true")
-          {
-            
-            ls.set('username', this.state.username.target.value); 
-            window.location.href = "/profile";
-          }
-          else
-          {
-              console.log("Wrong password");
-              this.setState({wrongPassword: "Wrong Password"});
-          }
+        .then(res => { 
+                console.log(res);
+                if(res.data.profile == true)
+                {
+                    this.setState({update:"You have successfully updated."}); 
+                }
+          
         })
         .catch(error => {
           console.error(error)
         })
-  }
-
-  handleButtonClick_Sign()
-  {
-      return(window.location.href = "/signup"); 
   }
 
   setInputValue(property, val) {
@@ -83,7 +75,7 @@ class Login extends React.Component
               <h4>Login</h4>
             </CardHeader>
             <CardBody>
-              <div className="usernameInput">
+              <div className="profileInput">
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
                   {/*<CustomInput
@@ -94,7 +86,8 @@ class Login extends React.Component
                       fullWidth: true
                     }
                   />*/}
-                  <Input placeholder="Username" onChange = { (val) => this.setInputValue('username', val)}></Input>
+                  PUC Board Marks
+                  <Input placeholder="Math" onChange = { (val) => this.setInputValue('math', val)}></Input>
                 </GridItem>
               </GridContainer>
               </div>
@@ -109,18 +102,46 @@ class Login extends React.Component
                       fullWidth: true
                     }}
                   />*/}
-                  <Input placeholder="Password" onChange = { (val) => this.setInputValue('password', val)}></Input>
+                  <Input placeholder="Chem" onChange = { (val) => this.setInputValue('chem', val)}></Input>
+                </GridItem>
+              </GridContainer>
+              </div>
+              <div>
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={3}>
+                  {/*<CustomInput
+                    labelText="Password"
+                    id="password"
+                    onChange={event => setPassword(event.target.value)}
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                  />*/}
+                  <Input placeholder="Physics" onChange = { (val) => this.setInputValue('phy', val)}></Input>
+                </GridItem>
+              </GridContainer>
+              </div>
+              <div>
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={3}>
+                  {/*<CustomInput
+                    labelText="Password"
+                    id="password"
+                    onChange={event => setPassword(event.target.value)}
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                  />*/}
+                  <Input placeholder="CET Rank" onChange = { (val) => this.setInputValue('cetRank', val)}></Input>
                 </GridItem>
               </GridContainer>
               </div>
             </CardBody>
             <CardFooter>
-              <Button color="primary" onClick={() => this.handleButtonClick()}>Login</Button> Or
-              <Button color="primary" onClick={() => this.handleButtonClick_Sign()}>Sign Up</Button>
-              
+              <Button color="primary" onClick={() => this.handleButtonClick()}>Update Profile</Button>
             </CardFooter>
           </Card>
-          <div>{this.state.wrongPassword}</div>
+          <div>{this.state.update}</div>
         </GridItem>
       </GridContainer>
     </div>
@@ -129,4 +150,4 @@ class Login extends React.Component
 
 }
 
-export default Login;
+export default Profile;

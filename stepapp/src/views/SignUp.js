@@ -1,7 +1,5 @@
-import './Login.css';
+import './SignUp.css';
 import React from 'react';
-import ls from 'local-storage';
-
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import GridItem from "../components/Grid/GridItem.js";
@@ -17,50 +15,39 @@ import Input from '@material-ui/core/Input';
 
 const axios = require('axios');
 
-class Login extends React.Component
+class SignUp extends React.Component
 {
   constructor (props)
   {
     super(props);
     this.state = {
       username:'',
-      password:'',
-      wrongPassword:''
+      password:'', 
+      login:''
     }
   }
 
-  handleButtonClick()
+  handleButtonClick_S()
   {
     console.log("Hello in clickButton");
 
     console.log(this.state.username.target.value, this.state.password.target.value);
     
     axios
-        .post('http://localhost:5000/login', {
+        .post('http://localhost:5000/signup', {
           "username": this.state.username.target.value,
           "password": this.state.password.target.value
         })
-        .then(res => {
-          if(res.data.login == "true")
-          {
-            
-            ls.set('username', this.state.username.target.value); 
-            window.location.href = "/profile";
-          }
-          else
-          {
-              console.log("Wrong password");
-              this.setState({wrongPassword: "Wrong Password"});
-          }
+        .then(res => { 
+                if(res.data.signup == true)
+                {
+                    return(this.setState({login:"You have successfully signed up."})); 
+                }
+          
         })
         .catch(error => {
           console.error(error)
         })
-  }
-
-  handleButtonClick_Sign()
-  {
-      return(window.location.href = "/signup"); 
   }
 
   setInputValue(property, val) {
@@ -115,12 +102,10 @@ class Login extends React.Component
               </div>
             </CardBody>
             <CardFooter>
-              <Button color="primary" onClick={() => this.handleButtonClick()}>Login</Button> Or
-              <Button color="primary" onClick={() => this.handleButtonClick_Sign()}>Sign Up</Button>
-              
+              <Button color="primary" onClick={() => this.handleButtonClick_S()}>Sign Up</Button>
             </CardFooter>
           </Card>
-          <div>{this.state.wrongPassword}</div>
+          <div>{this.state.login}</div> 
         </GridItem>
       </GridContainer>
     </div>
@@ -129,4 +114,4 @@ class Login extends React.Component
 
 }
 
-export default Login;
+export default SignUp;

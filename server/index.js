@@ -59,8 +59,39 @@ app.post('/checkHasTakenTest', (req, res) => {
 				res.send({"hasTakenTest":"false"});
 			}
 		}
+	}
+}
+
+app.post('/signup', (req, res) => {
+  
+	console.log(req.body);
+
+	_db.collection("user").insert({"username":req.body.username, "password":req.body.password}, function(err, result) {
+
+		if(result != null)
+		{
+			res.send({"signup":"true"});
+		}
 
 	});
+})
+
+app.post('/profile', (req, res) => {
+  
+	console.log(req.body);
+	var myquery = { username: req.body.username };
+	var newvalues = { $set: {math:req.body.math, chem:req.body.chem, phy:req.body.phy, cetRank:req.body.cetRank} };
+	_db.collection("user").updateOne(myquery, newvalues, function(err, result)	
+		 {
+			console.log(result);
+			console.log(err);
+			if(result != null)
+			{
+				res.send({"profile":"true"});
+			}
+	
+		});
+	
 })
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
