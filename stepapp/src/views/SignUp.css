@@ -2,14 +2,31 @@
     text-align: center;
   }
   
+  .loginStyles{
+    background-color:#0d0b33;
+    height: 740px;
+  }
+  
+  .cardStyleLogin{
+    display: block;
+      margin: auto !important;
+      padding-top: 10%;
+      border-left: 100px;
+      /* margin-left: auto; */
+      padding-left: 220px !important;
+      width: 700px;
+  }
+
   .cardStyle{
     display: block;
     margin: auto !important;
-    padding-top: 100px;
+    padding-top: 5px;
     border-left: 100px;
-    padding-left: 1;
     /* margin-left: auto; */
-    padding-left: 200px !important;
+    padding-left: 220px !important;
+    width: 700px;
+    /* margin-left: 0 !important; */
+    /* padding-left: 100px; */
   }
   
   .usernameInput{

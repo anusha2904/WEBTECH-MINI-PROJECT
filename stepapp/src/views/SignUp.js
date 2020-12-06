@@ -64,7 +64,8 @@ class SignUp extends React.Component
   render()
   {
     return (
-      <div className="cardStyle">
+      <div className="loginStyles">
+      <div className="cardStyleLogin">
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
@@ -110,6 +111,7 @@ class SignUp extends React.Component
           <div>{this.state.login}</div> 
         </GridItem>
       </GridContainer>
+    </div>
     </div>
     );
   }

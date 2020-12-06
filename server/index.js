@@ -115,14 +115,99 @@ app.post('/submitQuiz', (req, res) => {
   
 	console.log(req.body);
 
-	// _db.collection("user").insert({"username":req.body.username, "password":req.body.password}, function(err, result) {
+	var resultDict = {"Arts":0, "Business":0, "Engineering":0, "Law":0};
 
-	// 	if(result != null)
-	// 	{
-	// 		res.send({"signup":"true"});
-	// 	}
+	var answers = req.body.quizQuestions;
 
-	// });
+	_db.collection("quizQuestion").find({}).toArray(function(err, result){
+
+		if(result != null)
+		{
+			result.forEach(element => {
+
+				if(element.containsAnswer == "true")
+				{
+					var questionId = element.questionId;
+					var answerFromDb = element.answer;
+					var answerFromReq = answers[questionId];
+
+					if(answerFromDb == answerFromReq)
+					{
+						resultDict[element.aptitude] += 1;
+					}
+					console.log(answerFromDb, answerFromReq);
+					console.log(resultDict);
+				}
+
+				else
+				{
+					var questionId = element.questionId;
+					var answerFromReq = answers[questionId];
+					answerFromReq = parseInt(answerFromReq);
+
+					if(answerFromReq == 1)
+					{
+						resultDict["Arts"] += 1;
+					}
+					else if(answerFromReq == 2)
+					{
+						resultDict["Business"] += 1;
+					}
+					else if(answerFromReq == 3)
+					{
+						resultDict["Engineering"] += 1;
+					}
+					else
+					{
+						resultDict["Law"] += 1;
+					}
+					console.log(answerFromReq);
+					console.log(resultDict);
+				}
+				
+			});
+			var maxKey = Object.keys(resultDict).reduce(function(a, b){ return resultDict[a] > resultDict[b] ? a : b });
+			
+			var updateQuery = {"username":req.body.username};
+			var updateWith = { "$set": {"username":req.body.username, "quizResult":maxKey} };
+			const options = { upsert: true };
+			_db.collection("quiz").updateOne(updateQuery, updateWith, options);
+
+			var updateQuery1 = {"username":req.body.username};
+			var updateWith1 = {"$set":{"username":req.body.username, "hasTakenTest":"true"}};
+			const options1 = {upsert: false};
+			_db.collection("user").updateOne(updateQuery1, updateWith1, options1);
+
+			res.send({"response":maxKey});
+		}
+	});
+});
+
+app.post('/getQuizQuestions', (req, res) => {
+  
+	console.log(req.body);
+
+	var questions = [];
+	var index = parseInt(req.body.questionIndex);
+	var questionIndex = index + (index - 1);
+
+	var query = {"questionId": { "$in" : [questionIndex.toString(),(questionIndex+1).toString()] }};
+
+	_db.collection("quizQuestion").find(query).toArray(function(err, result) {
+
+		if(result != null)
+		{
+			result.forEach(element => {
+				var questionDetails = {"questionId": element.questionId, "questionText": element.questionText,
+				"option1":element.options[0], "option2":element.options[1], "option3":element.options[2], 
+				"option4":element.options[3], "choice":element.selectedChoice};
+				questions.push(questionDetails);
+			});
+			res.send({"questions":questions});
+		}
+
+	});
+
 });
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));

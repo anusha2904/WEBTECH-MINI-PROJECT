@@ -1,7 +1,7 @@
 import './Login.css';
 import React from 'react';
 import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
-import Background from "../assets/img/background4.jpeg";
+import Background from "../assets/img/background9.jpg";
 import Button from "@material-ui/core/Button";
 import ls from 'local-storage';
 
@@ -9,7 +9,7 @@ const axios = require('axios');
 
 var sectionStyle = {
     width:"100%",
-    height:"400px",
+    height:"670px",
     backgroundImage: "url(" + Background + ")"
   };
 
@@ -56,13 +56,15 @@ class HomePage extends React.Component
             
             <div className="homepageMainDiv" style={sectionStyle}>
               
-              <div className="takeTestDiv">
-                  <p>Take our aptitute test again!</p>
-                  <Button color="default" variant="outlined" href="/quiz">Take the test!</Button>
-              </div>
-              <div className="takeTestDiv">
-                  <p>See the results</p>
-                  <Button color="default" variant="outlined" href="/quizresult">Results</Button>
+              <div className="contentDiv">
+                <div className="takeTestDiv">
+                    <h2 className="textStyle">Take our aptitute test again!</h2>
+                    <Button color="secondary" variant="contained" href="/quiz">Take the test!</Button>
+                </div>
+                <div className="takeTestDiv">
+                    <h1 className="textStyle">See the results</h1>
+                    <Button color="secondary" variant="contained" href="/quizresult">Results</Button>
+                </div>
               </div>
             </div>
           </div>
@@ -76,10 +78,12 @@ class HomePage extends React.Component
             
             <div className="homepageMainDiv" style={sectionStyle}>
               
+            <div className="contentDiv">
               <div className="takeTestDiv">
-                  <p>Take our aptitute test to determine your strengths!</p>
-                  <Button color="default" variant="outlined" href="/quiz">Take the test!</Button>
+                  <h2 className="textStyle">Take our aptitute test to determine your strengths!</h2>
+                  <Button color="secondary" variant="contained" href="/quiz">Take the test!</Button>
               </div>
+            </div>
             </div>
           </div>
           );

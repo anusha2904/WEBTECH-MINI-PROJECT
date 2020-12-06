@@ -1,7 +1,7 @@
 import './Login.css';
 import React from 'react';
 import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
-import Background from "../assets/img/background4.jpeg";
+import Background from "../assets/img/background9.jpg";
 import Button from "@material-ui/core/Button";
 import ls from 'local-storage';
 
@@ -9,7 +9,7 @@ const axios = require('axios');
 
 var sectionStyle = {
     width:"100%",
-    height:"400px",
+    height:"670px",
     backgroundImage: "url(" + Background + ")"
   };
 
@@ -61,11 +61,13 @@ class QuizResult extends React.Component
             
                 <div className="homepageMainDiv" style={sectionStyle}>
                     
+                <div className="contentDiv">
                     <div className="takeTestDiv">
-                        <p>Your aptitude test result is: {this.state.quizResult}</p>
-                        <Button color="default" variant="outlined">Get your recommendations</Button>
+                        <h2 className="textStyle">Your aptitude test result is: {this.state.quizResult}</h2>
+                        <Button color="secondary" variant="contained">Get your recommendations</Button>
                     </div>
                 </div>
+              </div>
             </div>
         );
     }
@@ -78,10 +80,12 @@ class QuizResult extends React.Component
             
                 <div className="homepageMainDiv" style={sectionStyle}>
                     
+                <div className="contentDiv">
                     <div className="takeTestDiv">
-                        <p>Take the test to get your result</p>
-                        <Button color="default" variant="outlined" href="/quiz">Take the test!</Button>
+                        <h2 className="textStyle">Take the test to get your result</h2>
+                        <Button color="secondary" variant="contained" href="/quiz">Take the test!</Button>
                     </div>
+                </div>
                 </div>
             </div>
         );
