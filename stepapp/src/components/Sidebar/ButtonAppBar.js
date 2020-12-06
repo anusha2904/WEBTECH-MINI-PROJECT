@@ -16,6 +16,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import List from '@material-ui/core/List';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
+import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
 
 const styles = {
   root: {
@@ -23,6 +26,7 @@ const styles = {
   },
   flex: {
     flex: 1,
+    fontFamily: "Copperplate"
   },
   menuButton: {
     marginLeft: -12,
@@ -33,6 +37,9 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: '0 8px',
+  },
+  drawerPaper:{
+    width:"300px"
   }
 };
 
@@ -53,13 +60,13 @@ class ButtonAppBar extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static" style={{ background: '#2E3B55' }}>
+        <AppBar position="static" style={{ background: 'rgb(14 13 56)' }}>
           <Toolbar>
             <IconButton onClick={this.handleDrawerOpen} className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
             <Typography variant="h5" color="inherit" className={classes.flex}>
-              Title
+              The Ideal University
           </Typography>
             {/* <Button onClick={this.handleDrawerOpen} color="inherit">Drawer</Button> */}
           </Toolbar>
@@ -80,15 +87,15 @@ class ButtonAppBar extends React.Component {
           <Divider />
         <List>
             <ListItem button component="a" href="/homepage">
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+              <ListItemIcon><HomeIcon /></ListItemIcon>
               <ListItemText primary="Home" />
             </ListItem>
             <ListItem button component="a" href="/profile">
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+              <ListItemIcon><PersonIcon /></ListItemIcon>
               <ListItemText primary="Profile" />
             </ListItem>
             <ListItem button component="a" href="/quizresult">
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+              <ListItemIcon><LocalLibraryIcon /></ListItemIcon>
               <ListItemText primary="Quiz Result" />
             </ListItem>
         </List>

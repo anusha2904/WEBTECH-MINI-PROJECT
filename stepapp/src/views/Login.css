@@ -6,6 +6,22 @@
   background-image: "../assets/img/background.jpg" !important;
 }
 
+.contentDiv{
+  background: rgb(12 11 23 / 38%);
+  position: absolute;
+  padding: 100px;
+  margin: 0;
+  top: 20%;
+  left: 25%;
+  max-height: fit-content;
+  width: 500px;
+}
+
+.textStyle{
+  color:white;
+  font-family: "Copperplate";
+}
+
 .takeTestDiv{
   padding-top:5%;
   text-align: center;
@@ -23,14 +39,36 @@
   height:500px;
 }
 
+.paginatorDiv{
+  padding-left:40%;
+  padding-top:10px;
+}
+
+.loginStyles{
+  background-color:#0d0b33;
+  height: 740px;
+}
+
+.cardStyleLogin{
+  display: block;
+    margin: auto !important;
+    padding-top: 10%;
+    border-left: 100px;
+    /* margin-left: auto; */
+    padding-left: 220px !important;
+    width: 700px;
+}
+
 .cardStyle{
   display: block;
-  margin: auto !important;
-  padding-top: 100px;
-  border-left: 100px;
-  padding-left: 1;
-  /* margin-left: auto; */
-  padding-left: 200px !important;
+    margin: auto !important;
+    padding-top: 5px;
+    border-left: 100px;
+    /* margin-left: auto; */
+    padding-left: 220px !important;
+    width: 700px;
+    /* margin-left: 0 !important; */
+    /* padding-left: 100px; */
 }
 .piechart{
   display: block;
@@ -57,6 +95,11 @@
 .usernameInput{
   padding-top: 20px;
   padding-bottom: 50px;
+}
+
+.paginator{
+  justify-content: "center";
+  padding: "10px";
 }
 
 .App-logo {

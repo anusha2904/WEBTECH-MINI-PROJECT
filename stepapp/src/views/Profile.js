@@ -13,8 +13,16 @@ import CardAvatar from "../components/Card/CardAvatar.js";
 import CardBody from "../components/Card/CardBody.js";
 import CardFooter from "../components/Card/CardFooter.js";
 import Input from '@material-ui/core/Input';
+import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
+import Background from "../assets/img/background9.jpg";
 
 const axios = require('axios');
+
+var sectionStyle = {
+  width:"100%",
+  height:"670px",
+  backgroundImage: "url(" + Background + ")"
+};
 
 class Profile extends React.Component
 {
@@ -67,97 +75,62 @@ class Profile extends React.Component
   render()
   {
     return (
-      <div className="cardStyle">
-      <GridContainer>
-        <GridItem xs={12} sm={12} md={8}>
-          <Card>
-            <CardHeader color="primary">
-              <h4>Fill Your Profile</h4>
-            </CardHeader>
-            <CardBody>
-            <div className="usernameInput">
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={3}>
-                  {/*<CustomInput
-                    labelText="Username"
-                    id="username"
-                    onChange={event => setUsername(event.target.value)}
-                    formControlProps={{
-                      fullWidth: true
-                    }
-                  />*/}
-                  PUC Board Marks
-                </GridItem>
-              </GridContainer>
-              </div>
+
+      <div>
+      <ButtonAppBar></ButtonAppBar>
+
+      <div className="cardStyle" style={sectionStyle}>
+        <Grid container>
+          <GridItem xs={8} sm={8} md={8}>
+            <Card>
+              <CardHeader color="primary">
+                <h4>Fill Your Profile</h4>
+              </CardHeader>
+              <CardBody>
               <div className="usernameInput">
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={3}>
-                  {/*<CustomInput
-                    labelText="Username"
-                    id="username"
-                    onChange={event => setUsername(event.target.value)}
-                    formControlProps={{
-                      fullWidth: true
-                    }
-                  />*/}
-                  <Input placeholder="Math" onChange = { (val) => this.setInputValue('math', val)}></Input>
-                </GridItem>
-              </GridContainer>
-              </div>
-              <div className="usernameInput">
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={3}>
-                  {/*<CustomInput
-                    labelText="Password"
-                    id="password"
-                    onChange={event => setPassword(event.target.value)}
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />*/}
-                  <Input placeholder="Chem" onChange = { (val) => this.setInputValue('chem', val)}></Input>
-                </GridItem>
-              </GridContainer>
-              </div>
-              <div className="usernameInput">
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={3}>
-                  {/*<CustomInput
-                    labelText="Password"
-                    id="password"
-                    onChange={event => setPassword(event.target.value)}
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />*/}
-                  <Input placeholder="Physics" onChange = { (val) => this.setInputValue('phy', val)}></Input>
-                </GridItem>
-              </GridContainer>
-              </div>
-              <div className="usernameInput">
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={3}>
-                  {/*<CustomInput
-                    labelText="Password"
-                    id="password"
-                    onChange={event => setPassword(event.target.value)}
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />*/}
-                  <Input placeholder="CET Rank" onChange = { (val) => this.setInputValue('cetRank', val)}></Input>
-                </GridItem>
-              </GridContainer>
-              </div>
-            </CardBody>
-            <CardFooter>
-              <Button color="primary" onClick={() => this.handleButtonClick()}>Update Profile</Button>
-            </CardFooter>
-          </Card>
-          <div>{this.state.update}</div>
-        </GridItem>
-      </GridContainer>
+                <GridContainer>
+                  <GridItem xs={8} sm={8} md={6}>   
+                    PUC BOARD MARKS                
+                  </GridItem>
+                </GridContainer>
+                </div>
+                <div className="usernameInput">
+                <GridContainer>
+                  <GridItem xs={8} sm={8} md={6}>
+                    <Input placeholder="Math" onChange = { (val) => this.setInputValue('math', val)}></Input>
+                  </GridItem>
+                </GridContainer>
+                </div>
+                <div className="usernameInput">
+                <GridContainer>
+                  <GridItem xs={8} sm={8} md={6}>
+                    <Input placeholder="Chem" onChange = { (val) => this.setInputValue('chem', val)}></Input>
+                  </GridItem>
+                </GridContainer>
+                </div>
+                <div className="usernameInput">
+                <GridContainer>
+                  <GridItem xs={8} sm={8} md={6}>
+                    <Input placeholder="Physics" onChange = { (val) => this.setInputValue('phy', val)}></Input>
+                  </GridItem>
+                </GridContainer>
+                </div>
+                <div className="usernameInput">
+                <GridContainer>
+                  <GridItem xs={8} sm={8} md={6}>
+                    <Input placeholder="CET Rank" onChange = { (val) => this.setInputValue('cetRank', val)}></Input>
+                  </GridItem>
+                </GridContainer>
+                </div>
+              </CardBody>
+              <CardFooter>
+                <Button color="primary" onClick={() => this.handleButtonClick()}>Update Profile</Button>
+              </CardFooter>
+            </Card>
+            <div>{this.state.update}</div>
+          </GridItem>
+        </Grid>
+      </div>
     </div>
     );
   }
