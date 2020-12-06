@@ -1,0 +1,276 @@
+[{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200be"
+  },
+  "collegeName": "BMSEF COLLEGE",
+  "latitude": "19.9386",
+  "longitude": "87.5595",
+  "courseOffered": "Arts",
+  "cetCutoff": "7800",
+  "image": "bmsef",
+  "description": "The University is committed to providing “education for the real world” that inspires students to realize their potential."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200bf"
+  },
+  "collegeName": "DAYANAND SAGAR COLLEGE",
+  "latitude": "12.9083",
+  "longitude": "77.5666",
+  "courseOffered": "Arts",
+  "cetCutoff": "5223",
+  "image": "dayanandsagar",
+  "description": "Our students graduate with the ability to adapt to an intellectually and technologically changing environment."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200c0"
+  },
+  "collegeName": "PARUL INSTITUTE",
+  "latitude": "22.2897",
+  "longitude": "73.3606",
+  "courseOffered": "Arts",
+  "cetCutoff": "3784",
+  "image": "parul",
+  "description": "The excellent residential facilities have been carefully planned according to international standards."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200c1"
+  },
+  "collegeName": "SILVER OAK COLLEGE",
+  "latitude": "23.030357",
+  "longitude": "72.517845",
+  "courseOffered": "Arts",
+  "cetCutoff": "6433",
+  "image": "silveroak",
+  "description": "Leading industries choose this instituion when they need the right talent."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200c2"
+  },
+  "collegeName": "NIRMA UNIVERSITY",
+  "latitude": "23.129318",
+  "longitude": "72.544884",
+  "courseOffered": "Business",
+  "cetCutoff": "3824",
+  "image": "nirma",
+  "description": "The University is committed to providing “education for the real world” that inspires students to realize their potential."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200c3"
+  },
+  "collegeName": "R.V COLLEGE",
+  "latitude": "12.97194",
+  "longitude": "77.59369",
+  "courseOffered": "Business",
+  "cetCutoff": "3395",
+  "image": "rv",
+  "description": "Our students graduate with the ability to adapt to an intellectually and technologically changing environment."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200c4"
+  },
+  "collegeName": "PANDIT DEENDAYAL UNIVERSITY",
+  "latitude": "23.1558",
+  "longitude": "72.6646",
+  "courseOffered": "Business",
+  "cetCutoff": "3227",
+  "image": "panditdeen",
+  "description": "The excellent residential facilities have been carefully planned according to international standards."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200c5"
+  },
+  "collegeName": "PESE UNIVERSITY",
+  "latitude": "12.9416",
+  "longitude": "77.5539",
+  "courseOffered": "Business",
+  "cetCutoff": "3587",
+  "image": "pese",
+  "description": "Leading industries choose this instituion when they need the right talent."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200c6"
+  },
+  "collegeName": "NIRMA UNIVERSITY",
+  "latitude": "23.129318",
+  "longitude": "72.544884",
+  "courseOffered": "Engineering",
+  "cetCutoff": "1917",
+  "image": "nirma",
+  "description": "The University is committed to providing “education for the real world” that inspires students to realize their potential."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200c7"
+  },
+  "collegeName": "PANDIT DEENDAYAL UNIVERSITY",
+  "latitude": "23.1558",
+  "longitude": "72.6646",
+  "courseOffered": "Engineering",
+  "cetCutoff": "1309",
+  "image": "panditdeen",
+  "description": "Our students graduate with the ability to adapt to an intellectually and technologically changing environment."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200c8"
+  },
+  "collegeName": "SIDDAGANGA INSTITUTE",
+  "latitude": "13.3318",
+  "longitude": "77.1274",
+  "courseOffered": "Engineering",
+  "cetCutoff": "1659",
+  "image": "siddanga",
+  "description": "The excellent residential facilities have been carefully planned according to international standards."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200c9"
+  },
+  "collegeName": "PANDIT DEENDAYAL UNIVERSITY",
+  "latitude": "23.1558",
+  "longitude": "72.6646",
+  "courseOffered": "Arts",
+  "cetCutoff": "2322",
+  "image": "panditdeen",
+  "description": "We believe that the development of new methods affords us an unprecedented opportunity to transform the learning experience for our students."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200ca"
+  },
+  "collegeName": "NIRMA UNIVERSITY",
+  "latitude": "23.129318",
+  "longitude": "72.544884",
+  "courseOffered": "Engineering",
+  "cetCutoff": "2849",
+  "image": "nirma",
+  "description": "Leading industries choose this instituion when they need the right talent."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200cb"
+  },
+  "collegeName": "PESE UNIVERSITY",
+  "latitude": "12.9416",
+  "longitude": "77.5539",
+  "courseOffered": "Engineering",
+  "cetCutoff": "1098",
+  "image": "pese",
+  "description": "We believe that the development of new technologies affords us an unprecedented opportunity to transform the learning experience for our students."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200cc"
+  },
+  "collegeName": "NIRMA UNIVERSITY",
+  "latitude": "23.129318",
+  "longitude": "72.544884",
+  "courseOffered": "Law",
+  "cetCutoff": "1031",
+  "image": "nirma",
+  "description": "The University is committed to providing “education for the real world” that inspires students to realize their potential."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200cd"
+  },
+  "collegeName": "PANDIT DEENDAYAL UNIVERSITY",
+  "latitude": "23.1558",
+  "longitude": "72.6646",
+  "courseOffered": "Law",
+  "cetCutoff": "3128",
+  "image": "panditdeen",
+  "description": "Our students graduate with the ability to adapt to an intellectually and technologically changing environment."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200ce"
+  },
+  "collegeName": "AHMEDABAD UNIVERSITY",
+  "latitude": "23.0373068",
+  "longitude": "72.544748",
+  "courseOffered": "Law",
+  "cetCutoff": "4552",
+  "image": "ahmedabad",
+  "description": "The excellent residential facilities have been carefully planned according to international standards."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200cf"
+  },
+  "collegeName": "BMS COLLEGE",
+  "latitude": "12.9386",
+  "longitude": "77.5595",
+  "courseOffered": "Arts",
+  "cetCutoff": "23400",
+  "image": "bms",
+  "description": "All our campuses incorporate infrastructure that matches the best in the country – ensuring that students have everything they need for a stimulating campus life."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200d0"
+  },
+  "collegeName": "BMS COLLEGE",
+  "latitude": "12.9386",
+  "longitude": "77.5595",
+  "courseOffered": "Law",
+  "cetCutoff": "8450",
+  "image": "bms",
+  "description": "Leading industries choose this instituion when they need the right talent."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200d1"
+  },
+  "collegeName": "BMS COLLEGE",
+  "latitude": "12.9386",
+  "longitude": "77.5595",
+  "courseOffered": "Business",
+  "cetCutoff": "4199",
+  "image": "bms",
+  "description": "We believe that the development of new technologies affords us an unprecedented opportunity to transform the learning experience for our students."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200d2"
+  },
+  "collegeName": "BMS COLLEGE",
+  "latitude": "12.9386",
+  "longitude": "77.5595",
+  "courseOffered": "Engineering",
+  "cetCutoff": "10900",
+  "image": "bms",
+  "description": "The creation of supporting infrastructure is the a major element of our core strategy."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200d3"
+  },
+  "collegeName": "PANDIT UNIVERSITY",
+  "latitude": "93.1558",
+  "longitude": "62.6646",
+  "courseOffered": "Engineering",
+  "cetCutoff": "2342",
+  "image": "pandit",
+  "description": "Our faculty members develop and deliver the educational programs that bring excellent students to Pandit University in the first place."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200d4"
+  },
+  "collegeName": "NIRMA UNIVERSITY",
+  "latitude": "23.129318",
+  "longitude": "72.544884",
+  "courseOffered": "Engineering",
+  "cetCutoff": "1515",
+  "image": "nirma",
+  "description": "We realize that our students represent the future of our society and we take our responsibility seriously."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200d5"
+  },
+  "collegeName": "AHMEDABAD UNIVERSITY",
+  "latitude": "29.0373068",
+  "longitude": "92.544748",
+  "courseOffered": "Engineering",
+  "cetCutoff": "1230",
+  "image": "ahmedabad",
+  "description": "We ensure that the rock-solid foundation we help them build here – both, in terms of skills and values – will stand them in good stead no matter which career they choose."
+},{
+  "_id": {
+    "$oid": "5fcca6049c97103ca8e200d6"
+  },
+  "collegeName": "ANDHRA UNIVERSITY COLLEGE",
+  "latitude": "17.729830",
+  "longitude": "83.321495",
+  "courseOffered": "Engineering",
+  "cetCutoff": "4030",
+  "image": "andhra",
+  "description": "All our campuses incorporate infrastructure that matches the best in the country – ensuring that students have everything they need for a stimulating campus life."
+}]

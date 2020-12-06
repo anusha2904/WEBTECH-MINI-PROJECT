@@ -1,0 +1,123 @@
+[{
+  "_id": {
+    "$oid": "5fcc7b6c3c504a99248a8497"
+  },
+  "questionId": "1",
+  "questionText": "1.) Nati is a dance form of Indian state of",
+  "options": [
+    "Karnataka",
+    "Madhya Pradesh",
+    "Himachal Pradesh",
+    "Assam"
+  ],
+  "selectedChoice": "",
+  "answer": "3",
+  "containsAnswer": "true",
+  "aptitude": "Arts"
+},{
+  "_id": {
+    "$oid": "5fcc7b6c3c504a99248a8498"
+  },
+  "questionId": "2",
+  "questionText": "2.) Airtel Payments Bank partnered with this insurance company to offer Smart Plan Shop Package Policy",
+  "options": [
+    "Bharti AXA General Insurance",
+    "TATA AIG Insurance Company",
+    "Bajaj Allianz General Insurance",
+    "HDFC ERGO General Insurance Company"
+  ],
+  "selectedChoice": "",
+  "answer": "1",
+  "containsAnswer": "true",
+  "aptitude": "Business"
+},{
+  "_id": {
+    "$oid": "5fcc7b6c3c504a99248a8499"
+  },
+  "questionId": "3",
+  "questionText": "3.) What is the probability that a chosen number is a perfect cube if it is chosen at random from the set (1, 2, 3…, 100)?",
+  "options": [
+    "4/13",
+    "1/2",
+    "1/25",
+    "1/10"
+  ],
+  "selectedChoice": "",
+  "answer": "3",
+  "containsAnswer": "true",
+  "aptitude": "Engineering"
+},{
+  "_id": {
+    "$oid": "5fcc7b6c3c504a99248a849a"
+  },
+  "questionId": "4",
+  "questionText": "4.) Private International law is also called",
+  "options": [
+    "Local laws",
+    "Conflict of laws",
+    "Common law",
+    "Civil law"
+  ],
+  "selectedChoice": "",
+  "answer": "2",
+  "containsAnswer": "true",
+  "aptitude": "Law"
+},{
+  "_id": {
+    "$oid": "5fcca56b3c504a99248a849b"
+  },
+  "questionId": "5",
+  "questionText": "5.) In below mentioned question, there is a relationship between given words on one side of: : and another word on another side of: : . Find another word that has the same relation with the words in the given pair. Scribble: Write: : Stammer : ?",
+  "options": [
+    "walk",
+    "swim",
+    "speak",
+    "climb"
+  ],
+  "selectedChoice": "",
+  "answer": "3",
+  "containsAnswer": "true",
+  "aptitude": "Arts"
+},{
+  "_id": {
+    "$oid": "5fcca56b3c504a99248a849c"
+  },
+  "questionId": "6",
+  "questionText": "6.) What is your favourite class?",
+  "options": [
+    "English",
+    "Economics",
+    "Math",
+    "Social studies"
+  ],
+  "selectedChoice": "",
+  "containsAnswer": "false"
+},{
+  "_id": {
+    "$oid": "5fcca56b3c504a99248a849d"
+  },
+  "questionId": "7",
+  "questionText": "7.) What extracurricular activities do you participate in?",
+  "options": [
+    "Drawing or writing",
+    "Investing in stock market",
+    "Solving puzzles",
+    "Social work"
+  ],
+  "selectedChoice": "",
+  "containsAnswer": "false"
+},{
+  "_id": {
+    "$oid": "5fcca56b3c504a99248a849e"
+  },
+  "questionId": "8",
+  "questionText": "8.) What sounds best?",
+  "options": [
+    "Writing a song",
+    "Managing a restaurant",
+    "Creating an app",
+    "Doing volunteer work"
+  ],
+  "selectedChoice": "",
+  "containsAnswer": "false"
+}]

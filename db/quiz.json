@@ -1,0 +1,157 @@
+[{
+  "_id": {
+    "$oid": "5fcbc0233c504a99248a8496"
+  },
+  "username": "pooja",
+  "quizResult": "Business",
+  "stats": [
+    {
+      "questionText": "1.) Nati is a dance form of Indian state of",
+      "userAnswer": "3",
+      "answer": "3"
+    },
+    {
+      "questionText": "2.) Airtel Payments Bank partnered with this insurance company to offer Smart Plan Shop Package Policy",
+      "userAnswer": "1",
+      "answer": "1"
+    },
+    {
+      "questionText": "3.) What is the probability that a chosen number is a perfect cube if it is chosen at random from the set (1, 2, 3…, 100)?",
+      "userAnswer": "3",
+      "answer": "3"
+    },
+    {
+      "questionText": "4.) Private International law is also called",
+      "userAnswer": "3",
+      "answer": "2"
+    },
+    {
+      "questionText": "5.) In below mentioned question, there is a relationship between given words on one side of: : and another word on another side of: : . Find another word that has the same relation with the words in the given pair. Scribble: Write: : Stammer : ?",
+      "userAnswer": "1",
+      "answer": "3"
+    }
+  ],
+  "aptitudeDict": {
+    "Arts": 1,
+    "Business": 4,
+    "Engineering": 1,
+    "Law": 0
+  }
+},{
+  "_id": {
+    "$oid": "5fcd39fcbee128ad67ce64eb"
+  },
+  "username": "ankita",
+  "aptitudeDict": {
+    "Arts": 1,
+    "Business": 3,
+    "Engineering": 1,
+    "Law": 0
+  },
+  "quizResult": "Business",
+  "stats": [
+    {
+      "questionText": "1.) Nati is a dance form of Indian state of",
+      "userAnswer": "1",
+      "answer": "3"
+    },
+    {
+      "questionText": "2.) Airtel Payments Bank partnered with this insurance company to offer Smart Plan Shop Package Policy",
+      "userAnswer": "3",
+      "answer": "1"
+    },
+    {
+      "questionText": "3.) What is the probability that a chosen number is a perfect cube if it is chosen at random from the set (1, 2, 3…, 100)?",
+      "userAnswer": "3",
+      "answer": "3"
+    },
+    {
+      "questionText": "4.) Private International law is also called",
+      "userAnswer": "1",
+      "answer": "2"
+    },
+    {
+      "questionText": "5.) In below mentioned question, there is a relationship between given words on one side of: : and another word on another side of: : . Find another word that has the same relation with the words in the given pair. Scribble: Write: : Stammer : ?",
+      "userAnswer": "3",
+      "answer": "3"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "5fcd3a2cbee128ad67ce6523"
+  },
+  "username": "anusha",
+  "aptitudeDict": {
+    "Arts": 5,
+    "Business": 0,
+    "Engineering": 1,
+    "Law": 0
+  },
+  "quizResult": "Arts",
+  "stats": [
+    {
+      "questionText": "1.) Nati is a dance form of Indian state of",
+      "userAnswer": "3",
+      "answer": "3"
+    },
+    {
+      "questionText": "2.) Airtel Payments Bank partnered with this insurance company to offer Smart Plan Shop Package Policy",
+      "userAnswer": "2",
+      "answer": "1"
+    },
+    {
+      "questionText": "3.) What is the probability that a chosen number is a perfect cube if it is chosen at random from the set (1, 2, 3…, 100)?",
+      "userAnswer": "3",
+      "answer": "3"
+    },
+    {
+      "questionText": "4.) Private International law is also called",
+      "userAnswer": "1",
+      "answer": "2"
+    },
+    {
+      "questionText": "5.) In below mentioned question, there is a relationship between given words on one side of: : and another word on another side of: : . Find another word that has the same relation with the words in the given pair. Scribble: Write: : Stammer : ?",
+      "userAnswer": "3",
+      "answer": "3"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "5fcd3dbcbee128ad67ce66d3"
+  },
+  "username": "sushma",
+  "aptitudeDict": {
+    "Arts": 5,
+    "Business": 1,
+    "Engineering": 1,
+    "Law": 0
+  },
+  "quizResult": "Arts",
+  "stats": [
+    {
+      "questionText": "1.) Nati is a dance form of Indian state of",
+      "userAnswer": "3",
+      "answer": "3"
+    },
+    {
+      "questionText": "2.) Airtel Payments Bank partnered with this insurance company to offer Smart Plan Shop Package Policy",
+      "userAnswer": "1",
+      "answer": "1"
+    },
+    {
+      "questionText": "3.) What is the probability that a chosen number is a perfect cube if it is chosen at random from the set (1, 2, 3…, 100)?",
+      "userAnswer": "3",
+      "answer": "3"
+    },
+    {
+      "questionText": "4.) Private International law is also called",
+      "userAnswer": "1",
+      "answer": "2"
+    },
+    {
+      "questionText": "5.) In below mentioned question, there is a relationship between given words on one side of: : and another word on another side of: : . Find another word that has the same relation with the words in the given pair. Scribble: Write: : Stammer : ?",
+      "userAnswer": "3",
+      "answer": "3"
+    }
+  ]
+}]
