@@ -100,6 +100,27 @@
     /* margin-left: 0 !important; */
     /* padding-left: 100px; */
 }
+.piechart{
+  display: block;
+  margin: auto !important;
+  padding-top: 0px;
+  border-left: 10px;
+  padding-left: 0;
+  /* margin-left: auto; */
+  padding-left: 500px !important;
+}
+
+.table{
+  display: block;
+  margin: auto !important;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-left: 70px;
+  /* margin-left: auto; */
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  
+}
 
 .usernameInput{
   padding-top: 20px;
