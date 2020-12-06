@@ -125,4 +125,22 @@ app.post('/submitQuiz', (req, res) => {
 	// });
 });
 
+app.post('/suggestion', (req, res) => {
+  
+	console.log("hi"); 
+	console.log(req.body);
+	const myquery = {"courseOffered" : req.body.courseOffered}; 
+	
+
+	_db.collection("colleges").find(myquery).toArray(function(err, result) {
+
+		if(result != null)
+		{
+			console.log(result);
+			res.send({"colleges":result});
+		}
+
+	});
+});
+
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));
