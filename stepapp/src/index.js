@@ -6,6 +6,7 @@ import HomePage from './views/HomePage';
 import SignUp from './views/SignUp';
 import Profile from './views/Profile';
 import Quiz from './views/Quiz';
+import Stats from './views/Stats';
 
 import QuizResult from './views/QuizResult';
 import reportWebVitals from './reportWebVitals';
@@ -32,6 +33,7 @@ ReactDOM.render(
       <Route path="/quiz" component={Quiz} />
       <Route path="/quizresult" component={QuizResult} />
       <Route path="/suggestion" component={Suggestion} />
+      <Route path="/stats" component={Stats} />
       <Redirect from="/" to="/login" />
     </Switch>
   </Router>,
