@@ -70,7 +70,7 @@ class SignUp extends React.Component
         <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color="primary">
-              <h4>Login</h4>
+              <h4>SignUp</h4>
             </CardHeader>
             <CardBody>
               <div className="usernameInput">

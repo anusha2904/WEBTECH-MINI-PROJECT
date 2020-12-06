@@ -20,17 +20,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 const axios = require('axios');
-
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
   
   const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
+    {"name":'Question1', "calories":159, "fat":6.0},
+    {"name":'Question2', "calories":159, "fat":6.0},
+    {"name":'Question3', "calories":159, "fat":6.0},
+    {"name":'Question4', "calories":159, "fat":6.0},
+    {"name":'Question5', "calories":159, "fat":6.0},
   ];
 
 class Stats extends React.Component
@@ -40,17 +36,46 @@ class Stats extends React.Component
     super(props);
     this.state = {
       hasTakenTest:false,
-      
-        
+      tableContent:[],
+      pieChartData:[],
+      percentageUsers:'',
+      aptitude:'',
       lineWidth:60
     }
    
   }
 
+  componentDidMount()
+  {
+    axios
+      .post('http://localhost:5000/getStats', {
+          "username": ls.get("username")
+      })
+      .then(res => {
+          console.log(res);
+          this.setState({tableContent:res.data.tableStats});
+
+          var pieChartContent = [
+            {title:"Arts", value:res.data.aptitudeDict["Arts"], color:'#E38627'},
+            {title:"Business", value:res.data.aptitudeDict["Business"], color:'#C13C37'},
+            {title:"Engineering", value:res.data.aptitudeDict["Engineering"], color:'#6A2135'},
+            {title:"Law", value:res.data.aptitudeDict["Law"], color:'#fffff'},
+          ];
+
+          this.setState({pieChartData:pieChartContent});
+          this.setState({percentageUsers:res.data.percentage});
+          this.setState({aptitude:res.data.reqAptitude})
+      })
+      .catch(error => {
+          console.error(error)
+      })
+
+      this.setState({contents:rows});
+  }
+
 
   render()
   {
-
     return (
         <div>
         <ButtonAppBar></ButtonAppBar>
@@ -61,70 +86,66 @@ class Stats extends React.Component
       <Table  aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>Question</TableCell>
+            <TableCell align="right">Your Answer</TableCell>
+            <TableCell align="right">Correct Answer</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {this.state.tableContent.map((row) => (
+            <TableRow key={row.questionText}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.questionText}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.userAnswer}</TableCell>
+              <TableCell align="right">{row.answer}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
         </div>
-        <div>
-        <Card>
-        <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              Hello
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              helloooooo
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
+
+      <div className="statsDivForPieChart">
+        <div className="statsCardDiv">
+          <Card>
+            <CardActionArea>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {this.state.percentageUsers+"%"}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {"Percentage of users with the same aptitude as you: "+this.state.aptitude}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         </div>
         <div className="piechart">
             <PieChart
-                data={[
-                    { title: 'One', value: 10, color: '#E38627' },
-                    { title: 'Two', value: 15, color: '#C13C37' },
-                    { title: 'Three', value: 20, color: '#6A2135' },
-                ]}
+                data={this.state.pieChartData}
 
                 style={{
                     fontFamily:
                       '"Nunito Sans", -apple-system, Helvetica, Arial, sans-serif',
                     fontSize: '8px',
                   }}
-                  radius={PieChart.defaultProps.radius - 24}
+                  radius={PieChart.defaultProps.radius - 2}
                   
                   segmentsStyle={{ transition: 'stroke .3s', cursor: 'pointer' }}
                   segmentsShift={(index) => (index === this.selected ? 6 : 1)}
                   animate
-                  label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%'}
+                  label={({ dataEntry }) => Math.round(dataEntry.percentage) + '%' == '0%' ? '': Math.round(dataEntry.percentage) + '%'}
                   labelPosition={60}
                   labelStyle={{
                     fill: '#fff',
                     opacity: 0.75,
                     pointerEvents: 'none',
+                    fontSize:'7px'
                   }}
                 
                 />
+        </div>
         </div>
       </div>
       );

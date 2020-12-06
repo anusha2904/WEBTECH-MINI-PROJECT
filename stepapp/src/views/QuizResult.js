@@ -66,6 +66,9 @@ class QuizResult extends React.Component
                         <h2 className="textStyle">Your aptitude test result is: {this.state.quizResult}</h2>
                         <Button color="secondary" variant="contained" href="/suggestion">Get your recommendations</Button>
                     </div>
+                    <div className="takeTestDiv">
+                      <Button color="secondary" variant="contained" href="/stats">See the stats</Button>
+                    </div>
                 </div>
               </div>
             </div>

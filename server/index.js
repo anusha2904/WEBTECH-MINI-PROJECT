@@ -161,6 +161,7 @@ app.post('/submitQuiz', (req, res) => {
 
 		if(result != null)
 		{
+			var stats = [];
 			result.forEach(element => {
 
 				if(element.containsAnswer == "true")
@@ -173,6 +174,10 @@ app.post('/submitQuiz', (req, res) => {
 					{
 						resultDict[element.aptitude] += 1;
 					}
+
+					var statRow = {"questionText":element.questionText, "userAnswer":answerFromReq, "answer":answerFromDb};
+					stats.push(statRow);
+
 					console.log(answerFromDb, answerFromReq);
 					console.log(resultDict);
 				}
@@ -207,7 +212,7 @@ app.post('/submitQuiz', (req, res) => {
 			var maxKey = Object.keys(resultDict).reduce(function(a, b){ return resultDict[a] > resultDict[b] ? a : b });
 			
 			var updateQuery = {"username":req.body.username};
-			var updateWith = { "$set": {"username":req.body.username, "quizResult":maxKey} };
+			var updateWith = { "$set": {"username":req.body.username, "quizResult":maxKey, "stats":stats, "aptitudeDict":resultDict} };
 			const options = { upsert: true };
 			_db.collection("quiz").updateOne(updateQuery, updateWith, options);
 
@@ -277,6 +282,42 @@ app.post('/suggestion', (req, res) => {
 
 		});
 	}
+	
+});
+
+app.post('/getStats', (req, res) => {
+  
+	_db.collection("quiz").findOne({"username":req.body.username}, function(err, result) {
+
+		if(result != null)
+		{
+			var reqAptitude = result.quizResult;
+			_db.collection("quiz").find({}).toArray(function(err1, result1){
+
+				if(result1 != null)
+				{
+					var usersWithSameAptitude = [];
+					var allUsersCount = result1.length;
+
+					result1.forEach(element => {
+
+						if(element.quizResult == reqAptitude)
+						{
+							usersWithSameAptitude.push(element);
+						}
+
+					});
+
+					var sameAptitudeCount = usersWithSameAptitude.length;
+					var percentage = (sameAptitudeCount / allUsersCount) * 100;
+					res.send({"tableStats":result.stats, "aptitudeDict":result.aptitudeDict, "percentage":percentage, "reqAptitude":reqAptitude});
+				}
+
+			});
+
+		}
+
+	});
 	
 });
 
