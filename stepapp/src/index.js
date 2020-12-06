@@ -6,9 +6,12 @@ import HomePage from './views/HomePage';
 import SignUp from './views/SignUp';
 import Profile from './views/Profile';
 import Quiz from './views/Quiz';
+
+import QuizResult from './views/QuizResult';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
+import Suggestion from './views/Suggestion';
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -27,6 +30,8 @@ ReactDOM.render(
       <Route path="/signup" component={SignUp} />
       <Route path="/profile" component={Profile} />
       <Route path="/quiz" component={Quiz} />
+      <Route path="/quizresult" component={QuizResult} />
+      <Route path="/suggestion" component={Suggestion} />
       <Redirect from="/" to="/login" />
     </Switch>
   </Router>,

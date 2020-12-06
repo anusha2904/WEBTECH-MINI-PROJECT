@@ -72,10 +72,10 @@ class Profile extends React.Component
         <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color="primary">
-              <h4>Login</h4>
+              <h4>Fill Your Profile</h4>
             </CardHeader>
             <CardBody>
-              <div className="usernameInput">
+            <div className="usernameInput">
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
                   {/*<CustomInput
@@ -87,11 +87,25 @@ class Profile extends React.Component
                     }
                   />*/}
                   PUC Board Marks
+                </GridItem>
+              </GridContainer>
+              </div>
+              <div className="usernameInput">
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={3}>
+                  {/*<CustomInput
+                    labelText="Username"
+                    id="username"
+                    onChange={event => setUsername(event.target.value)}
+                    formControlProps={{
+                      fullWidth: true
+                    }
+                  />*/}
                   <Input placeholder="Math" onChange = { (val) => this.setInputValue('math', val)}></Input>
                 </GridItem>
               </GridContainer>
               </div>
-              <div>
+              <div className="usernameInput">
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
                   {/*<CustomInput
@@ -106,7 +120,7 @@ class Profile extends React.Component
                 </GridItem>
               </GridContainer>
               </div>
-              <div>
+              <div className="usernameInput">
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
                   {/*<CustomInput
@@ -121,7 +135,7 @@ class Profile extends React.Component
                 </GridItem>
               </GridContainer>
               </div>
-              <div>
+              <div className="usernameInput">
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
                   {/*<CustomInput

@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const apiPort = 5000;
-const {MongoClient} = require('mongodb');
+const {MongoClient, ResumeToken} = require('mongodb');
 
 const uri = "mongodb://localhost:27017";
 const client = new MongoClient(uri);
@@ -93,5 +93,23 @@ app.post('/profile', (req, res) => {
 		});
 	
 });
+
+app.post('/getQuizResult', (req, res) => {
+  
+	_db.collection("quiz").findOne({"username":req.body.username}, function(err, result) {
+
+		if(result != null)
+		{
+			res.send({"hasQuizResult":"true", "quizResult":result.quizResult});
+		}
+		else
+		{
+			res.send({"hasQuizResult":"false"});
+		}
+
+	});
+	
+});
+
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));

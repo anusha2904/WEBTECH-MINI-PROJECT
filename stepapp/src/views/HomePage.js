@@ -27,8 +27,7 @@ class HomePage extends React.Component
     
     console.log("loaded!");
 
-    //var username = ls.get('username');
-    var username = "pooja";
+    var username = ls.get('username');
     axios
         .post('http://localhost:5000/checkHasTakenTest', {
           "username": username,
@@ -59,11 +58,11 @@ class HomePage extends React.Component
               
               <div className="takeTestDiv">
                   <p>Take our aptitute test again!</p>
-                  <Button color="default" variant="outlined">Take the test!</Button>
+                  <Button color="default" variant="outlined" href="/quiz">Take the test!</Button>
               </div>
               <div className="takeTestDiv">
                   <p>See the results</p>
-                  <Button color="default" variant="outlined">Results</Button>
+                  <Button color="default" variant="outlined" href="/quizresult">Results</Button>
               </div>
             </div>
           </div>
@@ -79,7 +78,7 @@ class HomePage extends React.Component
               
               <div className="takeTestDiv">
                   <p>Take our aptitute test to determine your strengths!</p>
-                  <Button color="default" variant="outlined">Take the test!</Button>
+                  <Button color="default" variant="outlined" href="/quiz">Take the test!</Button>
               </div>
             </div>
           </div>
