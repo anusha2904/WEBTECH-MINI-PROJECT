@@ -11,6 +11,18 @@
   text-align: center;
 }
 
+.optionsDiv{
+  padding:20px;
+}
+
+.questionDiv{
+  padding:40px;
+}
+
+.quizDiv{
+  height:500px;
+}
+
 .cardStyle{
   display: block;
   margin: auto !important;

@@ -111,5 +111,18 @@ app.post('/getQuizResult', (req, res) => {
 	
 });
 
+app.post('/submitQuiz', (req, res) => {
+  
+	console.log(req.body);
+
+	// _db.collection("user").insert({"username":req.body.username, "password":req.body.password}, function(err, result) {
+
+	// 	if(result != null)
+	// 	{
+	// 		res.send({"signup":"true"});
+	// 	}
+
+	// });
+});
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));
