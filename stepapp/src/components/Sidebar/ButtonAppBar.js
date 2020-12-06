@@ -98,6 +98,10 @@ class ButtonAppBar extends React.Component {
               <ListItemIcon><LocalLibraryIcon /></ListItemIcon>
               <ListItemText primary="Quiz Result" />
             </ListItem>
+            <ListItem button component="a" href="/suggestion">
+              <ListItemIcon><LocalLibraryIcon /></ListItemIcon>
+              <ListItemText primary="Recommendations" />
+            </ListItem>
         </List>
         <Divider />
           </div>

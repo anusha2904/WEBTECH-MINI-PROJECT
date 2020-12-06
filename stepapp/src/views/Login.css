@@ -2,6 +2,20 @@
   text-align: center;
 }
 
+.suggestionMessageDiv{
+    padding: 20px;
+    padding-left: 50px;
+}
+
+.suggestionButtonDivStyles{
+  display:flex;
+  padding:50px;
+}
+
+.suggestionButtonStyles{
+  padding-left:200px;
+}
+
 .homepageMainDiv{
   background-image: "../assets/img/background.jpg" !important;
 }
@@ -37,6 +51,22 @@
 
 .quizDiv{
   height:500px;
+}
+
+.suggestionCardDiv{
+  width: fit-content;
+  margin: 0 !important;
+  float: left;
+  padding: 50px;
+}
+
+.suggestionDiv{
+  /* flex-direction: row; */
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+    width: fit-content;
+    height: 100%;
 }
 
 .paginatorDiv{

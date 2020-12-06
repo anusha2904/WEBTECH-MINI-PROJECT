@@ -1,3 +1,4 @@
+import './Login.css';
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import PropTypes from 'prop-types';
@@ -21,6 +22,8 @@ import imagesiddanga from '../assets/img/siddanga.jpg';
 import imagesilveroak from '../assets/img/silveroak.jpg';
 import AllProjects from './Quiz';
 import { getDistance } from 'geolib';
+import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
+import ls from 'local-storage';
 
 const imagesArray = {"bmsef":imagebmsef, "dayanandsagar":imagedayanandsagar, "nirma":imagenirma, "pandit":imagepandit, "panditdeen":imagepanditdeen, "parul":imageparul, "pese":imagepese, "rv":imagerv, "siddanga":imagesiddanga, "silveroak":imagesilveroak, "bms": imagebms};
 
@@ -38,8 +41,6 @@ const styles = theme => ({
     },
   });
 
-
-
 class Suggestion extends React.Component{
     constructor(props)
     {
@@ -47,6 +48,10 @@ class Suggestion extends React.Component{
       this.state = 
         { 
           colleges:[],
+          aptitude:"",
+          displayMessage:"",
+          ifQuiz:"",
+          ifProfile:""
         }
         this.sortByRankAsc = this.sortByRankAsc.bind(this);
         this.sortByRankDesc = this.sortByRankDesc.bind(this);
@@ -56,35 +61,66 @@ class Suggestion extends React.Component{
     componentDidMount() 
     {
         axios
-        .post('http://localhost:5000/suggestion', {
-          "courseOffered": "Arts"
-        })
-        .then(res => {
-            this.setState({"colleges":res.data.colleges});
-            console.log("colleges: from this: ", this.state.colleges);
-            console.log(typeof(this.state.colleges)); 
+          .post('http://localhost:5000/getIfQuizAndProfile', {
+            "username": ls.get("username")
+          })
+          .then(res => { 
+              console.log("response of quiz and profile: ", res);
+              if(res.data.hasTakenTest == "true")
+              {
+                this.setState({ifQuiz:"taken aptitude test"});
+                this.setState({aptitude:res.data.quizResult});
+              }
 
-            this.state.colleges.forEach(element => {  
-              navigator.geolocation.getCurrentPosition((position) =>
-                {
-                console.log("Latitude is :", position.coords.latitude);
-                console.log("Longitude is :", position.coords.longitude);
+              else
+              {
+                this.setState({ifQuiz:"not taken aptitude test"});
+                this.setState({aptitude:""});
+              }
 
-                var distance = getDistance(
-                    { latitude: position.coords.latitude, longitude: position.coords.longitude },
-                    { latitude: element.latitude, longitude: element.longitude}
-                );
+              if(res.data.hasFilledProfile == "true")
+              {
+                this.setState({ifProfile:"filled profile"});
+              }
 
-                var distancekms = distance/1000; 
-                
-              element["distance"] = distancekms; 
+              else
+              {
+                this.setState({ifProfile:"not filled profile"});
+              }
 
-            });
-        })
-    })
-    .catch(error => {
-      console.error(error)
-    })
+              this.setState({displayMessage:"Showing results for: " + this.state.ifQuiz + " and " + this.state.ifProfile});
+
+              axios
+                .post('http://localhost:5000/suggestion', {
+                  "courseOffered": this.state.aptitude
+                })
+                .then(res => {
+                    this.setState({"colleges":res.data.colleges});
+
+
+                    this.state.colleges.forEach(element => {  
+                      navigator.geolocation.getCurrentPosition((position) =>
+                        {
+                        var distance = getDistance(
+                            { latitude: position.coords.latitude, longitude: position.coords.longitude },
+                            { latitude: element.latitude, longitude: element.longitude}
+                        );
+
+                        var distancekms = distance/1000; 
+                        
+                      element["distance"] = distancekms; 
+
+                    });
+                })
+            })
+                .catch(error => {
+                  console.error(error)
+                })
+
+          })
+          .catch(error => {
+            console.error(error)
+          })
   }
 
     sortByRankAsc() 
@@ -123,52 +159,72 @@ class Suggestion extends React.Component{
     
     const { classes } = this.props;
     return(
+    
     <div>
+    
+    <ButtonAppBar></ButtonAppBar>
+
+      <div className="suggestionMessageDiv">
+        {this.state.displayMessage}
+      </div>
+
+    <div className="suggestionDiv">
       {this.state.colleges.map(college => {  
         var imgName = null;
 
 
         return(
 
-          <div key={college._id}>
+          <div key={college._id} className="suggestionCardDiv">
             <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            style = {{ height: "10px", paddingTop: '0'}}
-            title="Colleges"
-            src="../assets/img/background.jpg"
-          />
-          <img src={imagesArray[college.image]} style = {{ width:"500px", height: "400px", paddingTop: ''}} />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {college.collegeName}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {college.description}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </CardActions>
-      </Card>
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  style = {{ height: "10px", paddingTop: '0'}}
+                  title="Colleges"
+                  src="../assets/img/background.jpg"
+                />
+                <img src={imagesArray[college.image]} style = {{ width:"500px", height: "400px", paddingTop: ''}} />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {college.collegeName+ " FOR " +college.courseOffered.toUpperCase()}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    {college.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button size="small" color="primary">
+                  Learn More
+                </Button>
+              </CardActions>
+            </Card>
     
           </div>
         );      
           
       })}
-    <Button size="small" color="primary" onClick={this.sortByRankAsc }>
-      Sort Asc
-    </Button>
-    <Button size="small" color="primary" onClick={this.sortByRankDesc }>
-      Sort Desc
-    </Button>
-    <Button size="small" color="primary" onClick={this.sortByDistance }>
-      Sort Distance
-    </Button>
+
+    </div>
+
+    <div className="suggestionButtonDivStyles">
+      <div className="suggestionButtonStyles">
+        <Button size="medium" color="primary" variant="contained" onClick={this.sortByRankAsc }>
+          Sort Asc
+        </Button>
+      </div>
+      <div className="suggestionButtonStyles">
+        <Button size="medium" color="primary" variant="contained" onClick={this.sortByRankDesc }>
+          Sort Desc
+        </Button>
+      </div>
+      <div className="suggestionButtonStyles">
+        <Button size="medium" color="primary" variant="contained" onClick={this.sortByDistance }>
+          Sort Distance
+        </Button>
+      </div>
+    </div>
 
     </div>
     );

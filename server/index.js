@@ -66,7 +66,7 @@ app.post('/signup', (req, res) => {
   
 	console.log(req.body);
 
-	_db.collection("user").insert({"username":req.body.username, "password":req.body.password}, function(err, result) {
+	_db.collection("user").insert({"username":req.body.username, "password":req.body.password, "hasTakenTest":"false", "hasFilledProfile":"false"}, function(err, result) {
 
 		if(result != null)
 		{
@@ -87,6 +87,11 @@ app.post('/profile', (req, res) => {
 			console.log(err);
 			if(result != null)
 			{
+				var updateQuery1 = {"username":req.body.username};
+				var updateWith1 = {"$set":{"username":req.body.username, "hasFilledProfile":"true"}};
+				const options1 = {upsert: false};
+				_db.collection("user").updateOne(updateQuery1, updateWith1, options1);
+
 				res.send({"profile":"true"});
 			}
 	
@@ -109,6 +114,39 @@ app.post('/getQuizResult', (req, res) => {
 
 	});
 	
+});
+
+app.post('/getIfQuizAndProfile', (req, res) => {
+
+	_db.collection("quiz").findOne({"username":req.body.username}, function(err, result) {
+
+		if(result != null)
+		{
+			_db.collection("user").findOne({"username":req.body.username}, function(err1, result1) {
+
+				if(result1 != null)
+				{
+					var profile = result1.hasFilledProfile;
+					res.send({"hasTakenTest":"true", "quizResult":result.quizResult, "hasFilledProfile":profile});
+				}
+		
+			});
+		}
+		else
+		{
+			_db.collection("user").findOne({"username":req.body.username}, function(err1, result1) {
+
+				if(result1 != null)
+				{
+					var profile = result1.hasFilledProfile;
+					res.send({"hasTakenTest":"false", "hasFilledProfile":profile});
+				}
+		
+			});
+		}
+
+	});
+
 });
 
 app.post('/submitQuiz', (req, res) => {
@@ -211,21 +249,35 @@ app.post('/getQuizQuestions', (req, res) => {
 });
 
 app.post('/suggestion', (req, res) => {
-  
-	console.log("hi"); 
+
 	console.log(req.body);
-	const myquery = {"courseOffered" : req.body.courseOffered}; 
+
+	if(req.body.courseOffered == "")
+	{
+		_db.collection("colleges").find({}).toArray(function(err, result) {
+
+			if(result != null)
+			{
+				res.send({"colleges":result});
+			}
 	
+		});
+	}
 
-	_db.collection("colleges").find(myquery).toArray(function(err, result) {
+	else
+	{
+		const myquery = {"courseOffered" : req.body.courseOffered}; 
 
-		if(result != null)
-		{
-			console.log(result);
-			res.send({"colleges":result});
-		}
+		_db.collection("colleges").find(myquery).toArray(function(err, result) {
 
-	});
+			if(result != null)
+			{
+				res.send({"colleges":result});
+			}
+
+		});
+	}
+	
 });
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));
