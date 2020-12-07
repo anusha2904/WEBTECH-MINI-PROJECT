@@ -19,10 +19,18 @@
 .suggestionButtonDivStyles{
   display:flex;
   padding:50px;
+  
 }
 
 .suggestionButtonStyles{
-  padding-left:200px;
+  padding-left:10px;
+  padding-right:10px;
+  padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  
 }
 
 .homepageMainDiv{
@@ -84,30 +92,30 @@
 }
 
 .loginStyles{
-  background-color:#0d0b33;
+  background-color:#10255c;
   height: 740px;
 }
 
-.cardStyleLogin{
-  display: block;
-    margin: auto !important;
-    padding-top: 10%;
-    border-left: 100px;
-    /* margin-left: auto; */
-    padding-left: 220px !important;
-    width: 700px;
+.sortbtndiv{
+  
+  width: 540px;
+  display:flex; 
+  padding-left: 310px; 
 }
+
 
 .cardStyle{
   display: block;
     margin: auto !important;
-    padding-top: 5px;
+    padding-top: 180px;
     border-left: 100px;
     /* margin-left: auto; */
-    padding-left: 220px !important;
+    padding-left: 200px !important;
     width: 700px;
+    
     /* margin-left: 0 !important; */
     /* padding-left: 100px; */
+
 }
 .piechart{
   padding-left: 400px !important;
@@ -127,7 +135,7 @@
 }
 
 .usernameInput{
-  padding-top: 20px;
+  padding-top: 0px;
   padding-bottom: 50px;
 }
 

@@ -1,7 +1,7 @@
 import './Login.css';
 import React from 'react';
 import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
-import Background from "../assets/img/background9.jpg";
+import Background from "../assets/img/28.jpg";
 import Button from "@material-ui/core/Button";
 import ls from 'local-storage';
 
@@ -64,10 +64,10 @@ class QuizResult extends React.Component
                 <div className="contentDiv">
                     <div className="takeTestDiv">
                         <h2 className="textStyle">Your aptitude test result is: {this.state.quizResult}</h2>
-                        <Button color="secondary" variant="contained" href="/suggestion">Get your recommendations</Button>
+                        <Button  variant="contained" color="primary" href="/suggestion">Get your recommendations</Button>
                     </div>
                     <div className="takeTestDiv">
-                      <Button color="secondary" variant="contained" href="/stats">See the stats</Button>
+                      <Button  variant="contained" color="primary" href="/stats">See the stats</Button>
                     </div>
                 </div>
               </div>

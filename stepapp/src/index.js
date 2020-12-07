@@ -7,6 +7,8 @@ import SignUp from './views/SignUp';
 import Profile from './views/Profile';
 import Quiz from './views/Quiz';
 import Stats from './views/Stats';
+import Home from './views/Home.js'; 
+import Covid from './views/Covid.js'; 
 
 import QuizResult from './views/QuizResult';
 import reportWebVitals from './reportWebVitals';
@@ -34,7 +36,9 @@ ReactDOM.render(
       <Route path="/quizresult" component={QuizResult} />
       <Route path="/suggestion" component={Suggestion} />
       <Route path="/stats" component={Stats} />
-      <Redirect from="/" to="/login" />
+      <Route path="/covid" component={Covid} />
+      <Route path='/' exact component={Home} />
+      {/* <Redirect from="/" to="/login" /> */}
     </Switch>
   </Router>,
   document.getElementById("root")

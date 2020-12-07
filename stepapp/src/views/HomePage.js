@@ -1,7 +1,7 @@
 import './Login.css';
 import React from 'react';
 import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
-import Background from "../assets/img/background9.jpg";
+import Background from "../assets/img/28.jpg";
 import Button from "@material-ui/core/Button";
 import ls from 'local-storage';
 
@@ -59,11 +59,11 @@ class HomePage extends React.Component
               <div className="contentDiv">
                 <div className="takeTestDiv">
                     <h2 className="textStyle">Take our aptitute test again!</h2>
-                    <Button color="secondary" variant="contained" href="/quiz">Take the test!</Button>
+                    <Button color="primary" variant="contained" href="/quiz">Take the test!</Button>
                 </div>
                 <div className="takeTestDiv">
                     <h1 className="textStyle">See the results</h1>
-                    <Button color="secondary" variant="contained" href="/quizresult">Results</Button>
+                    <Button color="primary" variant="contained" href="/quizresult">Results</Button>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@ class HomePage extends React.Component
             <div className="contentDiv">
               <div className="takeTestDiv">
                   <h2 className="textStyle">Take our aptitute test to determine your strengths!</h2>
-                  <Button color="secondary" variant="contained" href="/quiz">Take the test!</Button>
+                  <Button color="primary" variant="contained" href="/quiz">Take the test!</Button>
               </div>
             </div>
             </div>

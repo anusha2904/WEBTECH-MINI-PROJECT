@@ -30,7 +30,7 @@ const projectList1 = [{
     selectedChoice:""
   }];
 
-const answers = {"1":"", "2":"", "3":"", "4":"", "5":""};
+const answers = {"1":"", "2":"", "3":"", "4":""};
 
 class AllProjects extends React.Component
 {

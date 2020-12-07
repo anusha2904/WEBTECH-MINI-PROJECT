@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
+import { Link } from 'react-router-dom';
 
 // core components
 import styles from "../../assets/jss/material-dashboard-react/components/cardStyle.js";
@@ -24,7 +25,9 @@ export default function Card(props) {
   });
   return (
     <div className={cardClasses} {...rest}>
+      
       {children}
+      
     </div>
   );
 }

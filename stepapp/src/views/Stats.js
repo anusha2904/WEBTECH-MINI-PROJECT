@@ -59,7 +59,7 @@ class Stats extends React.Component
             {title:"Arts", value:res.data.aptitudeDict["Arts"], color:'#E38627'},
             {title:"Business", value:res.data.aptitudeDict["Business"], color:'#C13C37'},
             {title:"Engineering", value:res.data.aptitudeDict["Engineering"], color:'#6A2135'},
-            {title:"Law", value:res.data.aptitudeDict["Law"], color:'#fffff'},
+            {title:"Law", value:res.data.aptitudeDict["Law"], color:'#ff9999'},
           ];
 
           this.setState({pieChartData:pieChartContent});

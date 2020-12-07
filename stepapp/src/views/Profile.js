@@ -14,7 +14,7 @@ import CardBody from "../components/Card/CardBody.js";
 import CardFooter from "../components/Card/CardFooter.js";
 import Input from '@material-ui/core/Input';
 import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
-import Background from "../assets/img/background9.jpg";
+import Background from "../assets/img/28.jpg";
 
 const axios = require('axios');
 
@@ -83,7 +83,7 @@ class Profile extends React.Component
         <Grid container>
           <GridItem xs={8} sm={8} md={8}>
             <Card>
-              <CardHeader color="primary">
+              <CardHeader color="">
                 <h4>Fill Your Profile</h4>
               </CardHeader>
               <CardBody>

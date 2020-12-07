@@ -228,7 +228,7 @@ app.post('/submitQuiz', (req, res) => {
 
 app.post('/getQuizQuestions', (req, res) => {
   
-	console.log(req.body);
+	console.log('HERE', req.body);
 
 	var questions = [];
 	var index = parseInt(req.body.questionIndex);
@@ -236,8 +236,8 @@ app.post('/getQuizQuestions', (req, res) => {
 
 	var query = {"questionId": { "$in" : [questionIndex.toString(),(questionIndex+1).toString()] }};
 
-	_db.collection("quizQuestion").find(query).toArray(function(err, result) {
-
+	_db.collection("quizQuestion").find(query).toArray(function(err, result) 
+	{
 		if(result != null)
 		{
 			result.forEach(element => {

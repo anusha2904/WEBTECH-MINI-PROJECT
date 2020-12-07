@@ -76,25 +76,18 @@ class Login extends React.Component
   {
     return (
     <div className="loginStyles">
-      <div className="cardStyleLogin">
+      <div className="cardStyle">
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="" >
               <h4>Login</h4>
             </CardHeader>
             <CardBody>
               <div className="usernameInput">
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
-                  {/*<CustomInput
-                    labelText="Username"
-                    id="username"
-                    onChange={event => setUsername(event.target.value)}
-                    formControlProps={{
-                      fullWidth: true
-                    }
-                  />*/}
+                  
                   <Input placeholder="Username" onChange = { (val) => this.setInputValue('username', val)}></Input>
                 </GridItem>
               </GridContainer>
@@ -102,21 +95,14 @@ class Login extends React.Component
               <div>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={3}>
-                  {/*<CustomInput
-                    labelText="Password"
-                    id="password"
-                    onChange={event => setPassword(event.target.value)}
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />*/}
+                  
                   <Input placeholder="Password" onChange = { (val) => this.setInputValue('password', val)}></Input>
                 </GridItem>
               </GridContainer>
               </div>
             </CardBody>
             <CardFooter>
-              <Button color="primary" onClick={() => this.handleButtonClick()}>Login</Button> Or
+              <Button color="primary" onClick={() => this.handleButtonClick()}>Login</Button> 
               <Button color="primary" onClick={() => this.handleButtonClick_Sign()}>Sign Up</Button>
               
             </CardFooter>

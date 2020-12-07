@@ -24,6 +24,9 @@ import AllProjects from './Quiz';
 import { getDistance } from 'geolib';
 import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
 import ls from 'local-storage';
+import '../components/Cards.css'
+import HeroSection3 from '../components/HeroSection3';
+
 
 const imagesArray = {"bmsef":imagebmsef, "dayanandsagar":imagedayanandsagar, "nirma":imagenirma, "pandit":imagepandit, "panditdeen":imagepanditdeen, "parul":imageparul, "pese":imagepese, "rv":imagerv, "siddanga":imagesiddanga, "silveroak":imagesilveroak, "bms": imagebms};
 
@@ -40,6 +43,8 @@ const styles = theme => ({
       height: 100
     },
   });
+
+
 
 class Suggestion extends React.Component{
     constructor(props)
@@ -95,7 +100,7 @@ class Suggestion extends React.Component{
                   "courseOffered": this.state.aptitude
                 })
                 .then(res => {
-                    this.setState({"colleges":res.data.colleges});
+                    this.setState({colleges:res.data.colleges});
 
 
                     this.state.colleges.forEach(element => {  
@@ -145,14 +150,17 @@ class Suggestion extends React.Component{
     sortByDistance()
       {
         this.setState(prevState => {
-          this.state.colleges.sort((a, b) => (b.distance - a.distance))
+          this.state.colleges.sort((a, b) => (a.distance - b.distance))
   
       });
       this.setState({colleges:this.state.colleges});
         
       }
     
-   
+   handleclick()
+   {
+     window.location.href = "https://www.pes.edu/"
+   }
  
   render()
   {
@@ -164,9 +172,35 @@ class Suggestion extends React.Component{
     
     <ButtonAppBar></ButtonAppBar>
 
-      <div className="suggestionMessageDiv">
+      {/* <div className="suggestionMessageDiv">
         {this.state.displayMessage}
-      </div>
+      </div> */}
+      <div><HeroSection3/></div>
+      <div className = "sortbtndiv">
+        <Card>
+            <CardActionArea>
+              <CardContent>
+              <div className="suggestionButtonDivStyles">
+                  <div className="suggestionButtonStyles">
+                    <Button size="medium"  variant="contained" onClick={this.sortByRankAsc }>
+                      Sort By Rank(LOW-HIGH)
+                    </Button>
+                  </div>
+                  <div className="suggestionButtonStyles">
+                    <Button size="medium"  variant="contained" onClick={this.sortByRankDesc }>
+                      Sort By Rank(HIGH-LOW)
+                    </Button>
+                  </div>
+                  <div className="suggestionButtonStyles">
+                    <Button size="medium"  variant="contained" onClick={this.sortByDistance}>
+                      Sort Distance(Near-far)
+                    </Button>
+                  </div>
+              </div>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </div>
 
     <div className="suggestionDiv">
       {this.state.colleges.map(college => {  
@@ -182,20 +216,23 @@ class Suggestion extends React.Component{
                   className={classes.media}
                   style = {{ height: "10px", paddingTop: '0'}}
                   title="Colleges"
+                  
                   src="../assets/img/background.jpg"
                 />
-                <img src={imagesArray[college.image]} style = {{ width:"500px", height: "400px", paddingTop: ''}} />
+                <img alt= 'Travel image' src={imagesArray[college.image]} style = {{ width:"500px", height: "400px", paddingTop: ''}} />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
                     {college.collegeName+ " FOR " +college.courseOffered.toUpperCase()}
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    {college.description}
+                    {college.description}<br/>
+                    {"Rank CutOff: "+college.cetCutoff}<br/>
+                    {"Distance: "+college.distance} 
                   </Typography>
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" onClick={()=> this.handleclick()} >
                   Learn More
                 </Button>
               </CardActions>
@@ -207,25 +244,6 @@ class Suggestion extends React.Component{
       })}
 
     </div>
-
-    <div className="suggestionButtonDivStyles">
-      <div className="suggestionButtonStyles">
-        <Button size="medium" color="primary" variant="contained" onClick={this.sortByRankAsc }>
-          Sort Asc
-        </Button>
-      </div>
-      <div className="suggestionButtonStyles">
-        <Button size="medium" color="primary" variant="contained" onClick={this.sortByRankDesc }>
-          Sort Desc
-        </Button>
-      </div>
-      <div className="suggestionButtonStyles">
-        <Button size="medium" color="primary" variant="contained" onClick={this.sortByDistance }>
-          Sort Distance
-        </Button>
-      </div>
-    </div>
-
     </div>
     );
       

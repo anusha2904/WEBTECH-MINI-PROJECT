@@ -1,4 +1,4 @@
-import './SignUp.css';
+import './Login.css';
 import React from 'react';
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -29,9 +29,7 @@ class SignUp extends React.Component
 
   handleButtonClick_S()
   {
-    console.log("Hello in clickButton");
-
-    console.log(this.state.username.target.value, this.state.password.target.value);
+   
     
     axios
         .post('http://localhost:5000/signup', {
@@ -39,11 +37,12 @@ class SignUp extends React.Component
           "password": this.state.password.target.value
         })
         .then(res => { 
-          console.log(res);
+               
                 if(res.data.signup == "true")
                 {
-                    this.setState({login:"You have successfully signed up."}); 
-                    window.location.href = "/login";
+                  console.log("Hi");  
+                  this.setState({login:"You have successfully signed ."}); 
+                    window.location.href = "/login"; 
                 }
           
         })
@@ -65,12 +64,12 @@ class SignUp extends React.Component
   {
     return (
       <div className="loginStyles">
-      <div className="cardStyleLogin">
+      <div className="cardStyle">
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
-            <CardHeader color="primary">
-              <h4>SignUp</h4>
+            <CardHeader color="">
+              <h4>Sign Up</h4>
             </CardHeader>
             <CardBody>
               <div className="usernameInput">
