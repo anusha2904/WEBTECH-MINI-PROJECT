@@ -15,6 +15,9 @@ import CardFooter from "../components/Card/CardFooter.js";
 import Input from '@material-ui/core/Input';
 import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
 import Background from "../assets/img/28.jpg";
+import { Helmet } from 'react-helmet'
+
+const TITLE = 'TheIdealUniversity'
 
 const axios = require('axios');
 
@@ -78,6 +81,9 @@ class Profile extends React.Component
 
       <div>
       <ButtonAppBar></ButtonAppBar>
+      <Helmet>
+          <title>{ TITLE }</title>
+        </Helmet>
 
       <div className="cardStyle" style={sectionStyle}>
         <Grid container>

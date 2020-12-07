@@ -86,9 +86,13 @@ class ButtonAppBar extends React.Component {
           <div className={classes.drawerInner}>
           <Divider />
         <List>
-            <ListItem button component="a" href="/homepage">
+            <ListItem button component="a" href="/">
               <ListItemIcon><HomeIcon /></ListItemIcon>
               <ListItemText primary="Home" />
+            </ListItem>
+            <ListItem button component="a" href="/homepage">
+            <ListItemIcon><LocalLibraryIcon /></ListItemIcon>
+              <ListItemText primary="Take the test!" />
             </ListItem>
             <ListItem button component="a" href="/profile">
               <ListItemIcon><PersonIcon /></ListItemIcon>

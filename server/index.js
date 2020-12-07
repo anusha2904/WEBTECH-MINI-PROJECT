@@ -118,6 +118,8 @@ app.post('/getQuizResult', (req, res) => {
 
 app.post('/getIfQuizAndProfile', (req, res) => {
 
+	console.log("GET IF QUIZ AND PROFILE: ", req, res);
+
 	_db.collection("quiz").findOne({"username":req.body.username}, function(err, result) {
 
 		if(result != null)
@@ -255,7 +257,7 @@ app.post('/getQuizQuestions', (req, res) => {
 
 app.post('/suggestion', (req, res) => {
 
-	console.log(req.body);
+	console.log("SUGGESTIONS: ", req.body);
 
 	if(req.body.courseOffered == "")
 	{

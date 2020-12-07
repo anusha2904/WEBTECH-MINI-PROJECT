@@ -18,6 +18,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { Helmet } from 'react-helmet'
+
+const TITLE = 'TheIdealUniversity'
 
 const axios = require('axios');
   
@@ -79,6 +82,9 @@ class Stats extends React.Component
     return (
         <div>
         <ButtonAppBar></ButtonAppBar>
+        <Helmet>
+          <title>{ TITLE }</title>
+        </Helmet>
 
         <div className = "table">
        

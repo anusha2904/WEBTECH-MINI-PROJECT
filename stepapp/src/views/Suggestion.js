@@ -20,17 +20,22 @@ import imagepese from '../assets/img/pese.jpg';
 import imagerv from '../assets/img/rv.jpg'; 
 import imagesiddanga from '../assets/img/siddanga.jpg'; 
 import imagesilveroak from '../assets/img/silveroak.jpg';
+import imagesahmedabad from '../assets/img/ahmedabad.jpg';
+import imagesandhra from '../assets/img/andhra.jpg';
 import AllProjects from './Quiz';
 import { getDistance } from 'geolib';
 import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
 import ls from 'local-storage';
 import '../components/Cards.css'
 import HeroSection3 from '../components/HeroSection3';
+import { Helmet } from 'react-helmet'
+
+const TITLE = 'TheIdealUniversity'
 
 
-const imagesArray = {"bmsef":imagebmsef, "dayanandsagar":imagedayanandsagar, "nirma":imagenirma, "pandit":imagepandit, "panditdeen":imagepanditdeen, "parul":imageparul, "pese":imagepese, "rv":imagerv, "siddanga":imagesiddanga, "silveroak":imagesilveroak, "bms": imagebms};
+const imagesArray = {"bmsef":imagebmsef, "dayanandsagar":imagedayanandsagar, "nirma":imagenirma, "pandit":imagepandit, "panditdeen":imagepanditdeen, "parul":imageparul, "pese":imagepese, "rv":imagerv, "siddanga":imagesiddanga, "silveroak":imagesilveroak, "bms": imagebms, "andhra": imagesandhra, "ahmedabad":imagesahmedabad};
 
-const distance = {"bmsef":imagebmsef, "dayanandsagar":imagedayanandsagar, "nirma":imagenirma, "pandit":imagepandit, "panditdeen":imagepanditdeen, "parul":imageparul, "pese":imagepese, "rv":imagerv, "siddanga":imagesiddanga, "silveroak":imagesilveroak, "bms": imagebms}
+const distance = {"bmsef":imagebmsef, "dayanandsagar":imagedayanandsagar, "nirma":imagenirma, "pandit":imagepandit, "panditdeen":imagepanditdeen, "parul":imageparul, "pese":imagepese, "rv":imagerv, "siddanga":imagesiddanga, "silveroak":imagesilveroak, "bms": imagebms, "andhra": imagesandhra, "ahmedabad":imagesahmedabad}
 
 
 const axios = require('axios');
@@ -65,12 +70,14 @@ class Suggestion extends React.Component{
     
     componentDidMount() 
     {
+        console.log('IN COMPONENENT DID MOUNT');
+
         axios
           .post('http://localhost:5000/getIfQuizAndProfile', {
             "username": ls.get("username")
           })
           .then(res => { 
-              console.log("response of quiz and profile: ", res);
+              console.log("RESPONSE of quiz and profile: ", res);
               if(res.data.hasTakenTest == "true")
               {
                 this.setState({ifQuiz:"taken aptitude test"});
@@ -100,6 +107,7 @@ class Suggestion extends React.Component{
                   "courseOffered": this.state.aptitude
                 })
                 .then(res => {
+                    console.log("SUGGESTIONS RESPONSE: ", res);
                     this.setState({colleges:res.data.colleges});
 
 
@@ -169,6 +177,9 @@ class Suggestion extends React.Component{
     return(
     
     <div>
+      <Helmet>
+          <title>{ TITLE }</title>
+        </Helmet>
     
     <ButtonAppBar></ButtonAppBar>
 

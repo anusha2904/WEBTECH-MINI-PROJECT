@@ -12,6 +12,9 @@ import CardAvatar from "../components/Card/CardAvatar.js";
 import CardBody from "../components/Card/CardBody.js";
 import CardFooter from "../components/Card/CardFooter.js";
 import Input from '@material-ui/core/Input';
+import { Helmet } from 'react-helmet'
+
+const TITLE = 'TheIdealUniversity'
 
 const axios = require('axios');
 
@@ -64,6 +67,9 @@ class SignUp extends React.Component
   {
     return (
       <div className="loginStyles">
+        <Helmet>
+          <title>{ TITLE }</title>
+        </Helmet>
       <div className="cardStyle">
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>

@@ -4,6 +4,9 @@ import ButtonAppBar from "../components/Sidebar/ButtonAppBar.js"
 import Background from "../assets/img/28.jpg";
 import Button from "@material-ui/core/Button";
 import ls from 'local-storage';
+import { Helmet } from 'react-helmet'
+
+const TITLE = 'TheIdealUniversity'
 
 const axios = require('axios');
 
@@ -52,6 +55,9 @@ class HomePage extends React.Component
     {
         return (
             <div>
+              <Helmet>
+          <title>{ TITLE }</title>
+        </Helmet>
             <ButtonAppBar></ButtonAppBar>
             
             <div className="homepageMainDiv" style={sectionStyle}>
@@ -75,6 +81,9 @@ class HomePage extends React.Component
         return (
             <div>
             <ButtonAppBar></ButtonAppBar>
+            <Helmet>
+          <title>{ TITLE }</title>
+        </Helmet>
             
             <div className="homepageMainDiv" style={sectionStyle}>
               
