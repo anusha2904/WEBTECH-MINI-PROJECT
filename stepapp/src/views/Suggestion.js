@@ -227,7 +227,7 @@ class Suggestion extends React.Component{
                   <Typography variant="body2" color="textSecondary" component="p">
                     {college.description}<br/>
                     {"Rank CutOff: "+college.cetCutoff}<br/>
-                    {"Distance: "+college.distance} 
+                    {"Distance: "+college.distance+" km"} 
                   </Typography>
                 </CardContent>
               </CardActionArea>
